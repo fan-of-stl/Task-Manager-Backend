@@ -51,7 +51,6 @@ exports.updateTask = (req, res) => {
 exports.getAlltasks = async (req, res) => {
   try {
     const tasks = await Task.find({ creator: req.user._id }).exec();
-    console.log("task data :", tasks);
     res.status(200).json({ tasks });
   } catch (error) {
     return res.status(400).json({ error: "Task retrieval failed" });
